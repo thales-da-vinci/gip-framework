@@ -1,0 +1,25 @@
+# WordPress plugin development .gitignore
+*.log
+*.sql
+*.sqlite
+.DS_Store
+Thumbs.db
+
+# Node / npm
+node_modules/
+npm-debug.log*
+
+# Composer
+/vendor/
+/composer.lock
+
+# Build files
+/dist/
+/build/
+/.env
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
