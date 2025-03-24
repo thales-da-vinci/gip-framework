@@ -1,8 +1,12 @@
+![Testes PHPUnit](https://github.com/thales-da-vinci/gip-framework/actions/workflows/phpunit.yml/badge.svg)
+
 # 🚀 GIP Framework – Guided Iterative Precision (v1.0)
 
 ![Status](https://img.shields.io/badge/status-ativo-green?style=flat-square)
 ![WordPress](https://img.shields.io/badge/WordPress-6.7%2B-blue?style=flat-square)
 ![Licença](https://img.shields.io/badge/licença-MIT-lightgrey?style=flat-square)
+![Testes PHPUnit](https://github.com/SEU_USUARIO/gip-framework/actions/workflows/phpunit.yml/badge.svg)
+
 
 Este repositório contém a estrutura oficial do **GIP Framework**, um sistema para **desenvolvimento assistido por IA de plugins WordPress**, com foco em:
 
