@@ -74,4 +74,4 @@ Sinta-se livre para sugerir melhorias, adicionar novos blocos de documentação 
 
 ## 🌐 Mais sobre o GIP
 
-Você pode saber mais sobre o GIP Framework, incluindo o assistente AI que o acompanha, neste repositório ou pelo projeto Notion original (link opcional).
+Você pode saber mais sobre o GIP Framework, incluindo o assistente AI que o acompanha, neste repositório.
