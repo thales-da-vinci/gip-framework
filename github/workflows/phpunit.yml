@@ -1,0 +1,46 @@
+name: 🔍 Testes Automatizados com PHPUnit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  phpunit:
+    name: PHPUnit Testes
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: 🔄 Checkout do Código
+        uses: actions/checkout@v3
+
+      - name: 🧪 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, mysqli
+          ini-values: post_max_size=256M, upload_max_filesize=256M
+          coverage: none
+
+      - name: 🧰 Instalar dependências via Composer
+        run: |
+          composer install || true
+
+      - name: 🛠️ Rodar PHPUnit
+        run: |
+          if [ -f phpunit.xml ]; then
+            ./vendor/bin/phpunit
+          else
+            echo "⚠️ Nenhum arquivo phpunit.xml encontrado. Pulei os testes."
+          fi
