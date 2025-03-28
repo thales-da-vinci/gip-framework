@@ -1,0 +1,14 @@
+title: GIP Framework
+description: Documentação do framework GIP para plugins WordPress com IA
+theme: minima
+markdown: kramdown
+baseurl: ""
+url: "https://SEU_USUARIO.github.io/gip-framework"
+permalink: pretty
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      toc: true
