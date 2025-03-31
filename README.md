@@ -1,77 +1,94 @@
-# 🚀 GIP Framework – Guided Iterative Precision (v1.0)
+# 🧠 GIP Framework - Guided Iterative Precision
 
-![Status](https://img.shields.io/badge/status-ativo-green?style=flat-square)
-![WordPress](https://img.shields.io/badge/WordPress-6.7%2B-blue?style=flat-square)
-![Licença](https://img.shields.io/badge/licença-MIT-lightgrey?style=flat-square)
-
-Este repositório contém a estrutura oficial do **GIP Framework**, um sistema para **desenvolvimento assistido por IA de plugins WordPress**, com foco em:
-
-✅ Clareza de propósito  
-✅ Evitar regressões e retrabalho  
-✅ Versionamento com snapshots  
-✅ Validação contínua com testes manuais e automatizados  
-✅ Documentação completa do ciclo de vida do plugin  
+O **GIP Framework** é um ecossistema completo para criar, versionar, testar e automatizar plugins e microsistemas em WordPress com ajuda de IA, GitHub Actions e estrutura modular.
 
 ---
 
-## 📁 Estrutura da Pasta
+## 📚 O que é o GIP?
 
+GIP (Guided Iterative Precision) é um método de desenvolvimento inteligente que garante:
+
+✅ Clareza no planejamento  
+✅ Segurança e versionamento sem perdas  
+✅ Testes automatizados  
+✅ Código modular e escalável  
+✅ Integração com GitHub, Elementor, JetEngine e REST API
+
+---
+
+## ⚙️ Comandos Suportados no GPT
+
+- `/start-gip [Nome] - [Objetivo]`
+- `/maintain-gip [Nome]`
+- `/debug-gip [Nome]`
+- `/git-snapshot vX.X - changelog`
+- `/git-pr branch - mensagem`
+- `/install-pack nome`
+- `/generate-widget nome`
+
+---
+
+## 🧩 Estrutura do Ecossistema
+
+| Repositório       | Descrição |
+|--------------------|-----------|
+| `gip-core`         | Núcleo do framework e automações |
+| `gip-packs`        | Packs com plugins prontos e scripts |
+| `gip-sites`        | Modelos de sites com stack GIP |
+| `gip-control`      | Painel de gerenciamento remoto via REST |
+| `gip-widgets`      | Widgets personalizados para Elementor |
+| `gip-cli`          | Scripts de linha de comando (instalação, deploy etc) |
+| `gip-installer`    | Plugin de instalação automática |
+| `gip-examples`     | Exemplos práticos versionados |
+| `gip-tests`        | Testes automatizados com CI/CD |
+
+---
+
+## 📦 Instalação de Plugin GIP
+
+```bash
+./gip-instalar-plugin-zip.sh
 ```
-gip-framework/
-├── .gip-config/           → Templates e instruções internas do framework
-├── frontend/              → Guias de boas práticas para CSS, JS, blocos Gutenberg
-├── backend/               → Hooks, banco de dados, segurança e validação
-├── smtp/                  → Diagnóstico e validação de servidores SMTP
-├── versionamento/         → Snapshots e changelogs por versão
-├── testes/                → Estratégias e exemplos com PHPUnit e Cypress
-├── exemplos/              → Prompts reais aplicados em projetos anteriores
-└── README.md              → Este arquivo
+
+Ou para instalar packs:
+
+```bash
+./gip-install-pack.sh --pack=Desenvolvimento
 ```
 
 ---
 
-## 🧠 O que é o GIP?
+## 🚀 Automatização GitHub
 
-> GIP = **Guided Iterative Precision Framework**
-
-É um modelo criado para evitar o problema comum no uso de IA (como ChatGPT) na criação de plugins:  
-📛 *"Melhorias que quebram funcionalidades já prontas."*
-
-O GIP evita isso com um fluxo iterativo orientado por checkpoints, refinamento progressivo e documentação viva.
+- GitHub Actions com `.gip-action.yml` e `gip-automation.yml`
+- Integração com changelog automático
+- Criação de versões (snapshot), releases e pull requests
 
 ---
 
-## 🛠️ Como Usar
+## 🧠 Como usar com GPT Customizado
 
-1. Crie um novo projeto de plugin usando `/start-gip Nome - Objetivo`.
-2. Use os modelos de prompt em `.gip-config/modelo-prompt.md`.
-3. Aplique os testes recomendados em `/testes`.
-4. Registre cada mudança em `/versionamento` com snapshots antes e depois.
-5. Documente todas as etapas, inclusive erros, para alimentar a IA e evitar loops.
+Importe o arquivo:
+[`GIP_DEV_ASSISTANT_PROMPT_FINAL.json`](./GIP_DEV_ASSISTANT_PROMPT_FINAL.json)
 
----
-
-## 📌 Requisitos
-
-- WordPress 6.0 ou superior
-- PHP 7.4+
-- Recomenda-se uso de Git + CI/CD (GitHub Actions)
+Ou use o modelo completo em:
+[`index.md`](./docs/index.md)
 
 ---
 
-## 🔖 Licença
+## 👨‍💻 Requisitos
 
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo `LICENSE` para mais informações.
-
----
-
-## 🤝 Contribuindo
-
-Pull requests são bem-vindos!  
-Sinta-se livre para sugerir melhorias, adicionar novos blocos de documentação ou reportar bugs.
+- PHP 8.0+
+- WordPress 6.2+
+- Git + GitHub CLI
+- WP-CLI (local ou servidor)
 
 ---
 
-## 🌐 Mais sobre o GIP
+## 📎 Licença
 
-Você pode saber mais sobre o GIP Framework, incluindo o assistente AI que o acompanha, neste repositório ou pelo projeto Notion original (link opcional).
+MIT - Utilize livremente em seus projetos pessoais ou comerciais com atribuição.
+
+---
+
+Desenvolvido por: **Thales | GIP Framework**
