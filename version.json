@@ -2,6 +2,9 @@
   "version": "1.7.0",
   "release_date": "2025-04-01",
   "components": {
-    "gip-wp-manager": "v1.7.0"
+    "gip-wp-manager": "v1.7.0",
+    "gip-site": "v1.2.1",
+    "gip-installer": "v1.5.0",
+    "gip-dashboard-web": "v1.0.0"
   }
 }
