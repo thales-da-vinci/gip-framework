@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel GIP - Microsites</title>
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 2em; }
+    .container { max-width: 900px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { margin-bottom: 1em; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { padding: 10px; border-bottom: 1px solid #ccc; }
+    input { width: 90%; padding: 6px; }
+    button { padding: 6px 10px; }
+    .status { font-weight: bold; margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🌐 Deploy de Microsites GIP</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome do site</th>
+          <th>URL do ZIP</th>
+          <th>Servidor WP (endpoint)</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody id="siteTable">
+        <tr>
+          <td><input placeholder="cliente-x" class="name"></td>
+          <td><input placeholder="https://seusite.com/site.zip" class="zip_url"></td>
+          <td><input placeholder="https://seuwp.com/wp-json/gip/v1/deploy-site" class="endpoint"></td>
+          <td><button onclick="deploy(this)">Deploy</button></td>
+        </tr>
+        <tr>
+          <td><input placeholder="cliente-y" class="name"></td>
+          <td><input placeholder="https://site.com/y.zip" class="zip_url"></td>
+          <td><input placeholder="https://wp.com/wp-json/gip/v1/deploy-site" class="endpoint"></td>
+          <td><button onclick="deploy(this)">Deploy</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    async function deploy(btn) {
+      const row = btn.closest("tr");
+      const name = row.querySelector(".name").value;
+      const zip_url = row.querySelector(".zip_url").value;
+      const endpoint = row.querySelector(".endpoint").value;
+      const status = document.getElementById("status");
+      status.textContent = `⏳ Deploy: ${name}...`;
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, zip_url })
+        });
+        const data = await res.json();
+        if (data.success) {
+          status.textContent = `✅ ${name} instalado com sucesso!`;
+        } else {
+          status.textContent = `❌ ${name} falhou: ` + (data.message || JSON.stringify(data));
+        }
+      } catch (err) {
+        status.textContent = `❌ Erro inesperado: ${err}`;
+      }
+    }
+  </script>
+</body>
+</html>
